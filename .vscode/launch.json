@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "ezjson",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/test/build/ezjson-test",
+            "args": [],
+            "cwd": "${workspaceRoot}/",
+            "preLaunchTask": "ezjson_build"
+        },
+        {
+            "name": "test_library",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/test_external/build/ezjson-test",
+            "args": [],
+            "cwd": "${workspaceRoot}/"
+        },
+        {
+            "name": "test cpp",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/a.out",
+            "args": [],
+            "cwd": "${workspaceRoot}/",
+            "preLaunchTask": "build_test"
+        }
+    ],
+    "version": "2.0.0"
+}
