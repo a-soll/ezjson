@@ -7,5 +7,6 @@ set(CMAKE_BUILD_TYPE "Debug")
 find_package(ezjson REQUIRED)
 
 add_executable(ezjson-test main.cpp)
+set_property(TARGET ezjson-test PROPERTY CXX_STANDARD 17)
 
 target_link_libraries(ezjson-test PUBLIC ezjson::ezjson)
