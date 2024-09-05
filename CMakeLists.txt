@@ -24,8 +24,6 @@ target_sources(
     FILES include/ezjson/json.h include/ezjson/simdjson.h
 )
 
-#add_subdirectory(simdjson)
-
 include(CMakePackageConfigHelpers)
 
 configure_file(
