@@ -64,6 +64,5 @@ install(
 
 target_compile_options(ezjson PRIVATE -Wall -Wunused-variable)
 
-#target_link_libraries(ezjson PUBLIC simdjson)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test)
