@@ -1,6 +1,3 @@
 [submodule "cmakedemo"]
 	path = cmakedemo
 	url = https://github.com/simdjson/cmakedemo.git
-[submodule "simdjson"]
-	path = simdjson
-	url = https://github.com/simdjson/simdjson.git

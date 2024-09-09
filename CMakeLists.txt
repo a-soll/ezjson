@@ -12,16 +12,17 @@ message("Building configuration: ${CMAKE_BUILD_TYPE}")
 
 add_library(ezjson
     ${CMAKE_CURRENT_SOURCE_DIR}/src/json.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/simdjson.cpp
 )
+
+set_property(TARGET ezjson PROPERTY CXX_STANDARD 17)
 
 target_sources(
     ezjson PUBLIC
     FILE_SET HEADERS
     BASE_DIRS include
-    FILES include/ezjson/json.h
+    FILES include/ezjson/json.h include/ezjson/simdjson.h
 )
-
-add_subdirectory(simdjson)
 
 include(CMakePackageConfigHelpers)
 
@@ -61,6 +62,5 @@ install(
 
 target_compile_options(ezjson PRIVATE -Wall -Wunused-variable)
 
-target_link_libraries(ezjson PUBLIC simdjson)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test)
