@@ -20,12 +20,13 @@ class json {
         : _ps(std::move(j._ps))
         , _doc(std::move(j._doc))
         , _parser(std::move(j._parser)) {}
-    dom::element operator[](std::string_view key);
+    dom::element operator[](std::string_view key) const;
     std::string prettify();
     void parse(std::string_view json);
     inline dom::element &get() {
         return this->_doc;
     }
+    int32_t get_int32(std::string_view key);
     friend std::ostream &operator<<(std::ostream &stream, const json &json);
 
   private:

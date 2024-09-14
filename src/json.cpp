@@ -9,18 +9,22 @@ json::json(std::string_view json)
     this->_doc = this->_parser.parse(this->_ps);
 }
 
-dom::element json::operator[](std::string_view key) {
+std::string json::prettify() {
+    return simdjson::prettify(this->_doc);
+}
+
+dom::element json::operator[](std::string_view key) const {
     dom::element json;
     auto error = this->_doc[key].get(json);
     if (error) {
-        std::cout << simdjson::prettify(this->_doc) << '\n';
-        std::cout << "ERRO: " << key << '\n';
+        std::cerr << "ERROR: NO_SUCH_KEY: \"" << key << "\"" << '\n';
+        exit(1);
     }
-    return this->_doc[key];
+    return json;
 }
 
-std::string json::prettify() {
-    return simdjson::prettify(this->_doc);
+int32_t json::get_int32(std::string_view key) {
+    return (int32_t)this->_doc[key].get_int64();
 }
 
 void json::parse(std::string_view json) {

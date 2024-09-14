@@ -1,12 +1,7 @@
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(test)
+link_libraries(ezjson)
 
-include_directories(${PROJECT_SOURCE_DIR}/include)
-
-target_sources(test PRIVATE
+add_executable(test
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 )
-set_property(TARGET test PROPERTY CXX_STANDARD 17)
-
-target_link_libraries(test ezjson)
